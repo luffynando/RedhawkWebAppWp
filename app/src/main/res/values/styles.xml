@@ -1,5 +1,4 @@
 <resources>
-
     <!-- Base application theme. -->
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
@@ -26,6 +25,10 @@
 
             <!-- Navigation Drawer Arrow Style. -->
             <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
+
+            <!-- Ajustando Toolbar. -->
+            <item name="windowActionBar">false</item>
+            <item name="windowNoTitle">true</item>
         </style>
 
         <!-- Tema 2. -->
@@ -43,6 +46,9 @@
 
             <!-- Navigation Drawer Arrow Style. -->
             <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
+            <!-- Ajustando Toolbar. -->
+            <item name="windowActionBar">false</item>
+            <item name="windowNoTitle">true</item>
         </style>
 
         <!-- Tema 3. -->
@@ -60,6 +66,9 @@
 
             <!-- Navigation Drawer Arrow Style. -->
             <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
+            <!-- Ajustando Toolbar. -->
+            <item name="windowActionBar">false</item>
+            <item name="windowNoTitle">true</item>
         </style>
 
         <!-- Tema 4. -->
@@ -77,6 +86,9 @@
 
             <!-- Navigation Drawer Arrow Style. -->
             <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
+            <!-- Ajustando Toolbar. -->
+            <item name="windowActionBar">false</item>
+            <item name="windowNoTitle">true</item>
         </style>
 
         <!-- Tema 5. -->
@@ -94,7 +106,9 @@
 
             <!-- Navigation Drawer Arrow Style. -->
             <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
-
+            <!-- Ajustando Toolbar. -->
+            <item name="windowActionBar">false</item>
+            <item name="windowNoTitle">true</item>
         </style>
 
         <!-- Tema 6. -->
@@ -112,6 +126,9 @@
 
             <!-- Navigation Drawer Arrow Style. -->
             <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
+            <!-- Ajustando Toolbar. -->
+            <item name="windowActionBar">false</item>
+            <item name="windowNoTitle">true</item>
         </style>
 
         <!-- Tema 7. -->
@@ -129,6 +146,9 @@
 
             <!-- Navigation Drawer Arrow Style. -->
             <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
+            <!-- Ajustando Toolbar. -->
+            <item name="windowActionBar">false</item>
+            <item name="windowNoTitle">true</item>
         </style>
 
         <!-- Tema 8. -->
@@ -146,6 +166,9 @@
 
             <!-- Navigation Drawer Arrow Style. -->
             <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
+            <!-- Ajustando Toolbar. -->
+            <item name="windowActionBar">false</item>
+            <item name="windowNoTitle">true</item>
         </style>
 
         <!-- Tema 9. -->
@@ -160,9 +183,11 @@
             <item name="android:colorForeground">@color/md_black_1000_75</item>
             <item name="windowActionModeOverlay">true</item>
             <item name="actionModeBackground">@color/md_falcon_500</item>
-
             <!-- Navigation Drawer Arrow Style. -->
             <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
+            <!-- Ajustando Toolbar. -->
+            <item name="windowActionBar">false</item>
+            <item name="windowNoTitle">true</item>
         </style>
 
         <!-- Tema 10. -->
@@ -180,6 +205,9 @@
 
             <!-- Navigation Drawer Arrow Style. -->
             <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
+            <!-- Ajustando Toolbar. -->
+            <item name="windowActionBar">false</item>
+            <item name="windowNoTitle">true</item>
         </style>
 
         <style name="DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">

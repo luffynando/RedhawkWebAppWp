@@ -30,6 +30,12 @@
     <string name="tema_quitar">Quitar</string>
     <string name="tema_cambiar">Cambiar</string>
     <string name="busqueda">Buscar</string>
-    <string name="Ajustes_orden">Ordenar por...</string>
-    <string name="ajustes_vista">Cambiar vista...</string>
+    <string name="Ajustes_orden">Ordenar por..</string>
+    <string name="ajustes_vista">Cambiar vista..</string>
+    <string name="nav_home">Home</string>
+    <string name="nav_fixes">Fixes</string>
+    <string name="nav_dispositivos">Dispositivos</string>
+    <string name="nav_chat">Chat</string>
+    <string name="nav_soporte">Soporte</string>
+    <string name="nav_comunicacion">Comunicacion</string>
 </resources>

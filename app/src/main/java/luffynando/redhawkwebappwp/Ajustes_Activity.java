@@ -4,12 +4,15 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SwitchCompat;
 import android.support.v7.widget.Toolbar;
+import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -42,8 +45,12 @@ public class Ajustes_Activity extends AppCompatActivity implements View.OnClickL
         // Configura esta clase para utilizar el layout creado para settings
         setContentView(R.layout.activity_settings);
 
-        //Configura el status bar y el toolbar -- Implementacion desactiva por bugs menores
-        //toolbarStatusBar();
+        //Configura el status bar y el toolbar
+        toolbarStatusBar();
+
+        // Arregla los problemas con el statusbar
+        //navigationBarStatusBar();
+        ajustarStatus();
 
         // Declaramos en esta parte los botones para ajustes.
         settingsButtons();
@@ -174,6 +181,8 @@ public class Ajustes_Activity extends AppCompatActivity implements View.OnClickL
     public void toolbarStatusBar() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
     }
 
     public void fixBooleanDownload() {
@@ -264,6 +273,13 @@ public class Ajustes_Activity extends AppCompatActivity implements View.OnClickL
             default:
                 setTheme(R.style.AppTheme);
                 break;
+        }
+    }
+
+    public void ajustarStatus(){
+        if (Build.VERSION.SDK_INT >=19) {
+            FrameLayout status = (FrameLayout) findViewById(R.id.statusBar);
+            status.setVisibility(View.GONE);
         }
     }
 
