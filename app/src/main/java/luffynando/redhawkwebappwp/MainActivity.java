@@ -1,6 +1,7 @@
 package luffynando.redhawkwebappwp;
 
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -8,7 +9,8 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
-import android.util.TypedValue;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -18,16 +20,21 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.ViewGroup;
 import android.view.Window;
-import android.view.WindowManager;
 import android.widget.FrameLayout;
+import android.widget.ListView;
+
+import luffynando.redhawkwebappwp.Dialogs.CambiaAspectoChooserDialog;
+import luffynando.redhawkwebappwp.Fragments.FragmentPrincipal;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     SharedPreferences sharedPreferences;
     int theme;
+    ProgressDialog progressDialog;
+    ListView postList;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,13 +48,13 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
+        cargapost();
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "Ola k ase", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });
@@ -95,6 +102,13 @@ public class MainActivity extends AppCompatActivity
             return true;
         }
 
+        if (id == R.id.action_items) {
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            CambiaAspectoChooserDialog dialogChooser = new CambiaAspectoChooserDialog();
+            dialogChooser.show(fragmentManager, "fragment_CambiaAspecto_dialog");
+            return true;
+        }
+
         return super.onOptionsItemSelected(item);
     }
 
@@ -123,6 +137,34 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+    public void setFragment(int position) {
+        FragmentManager fragmentManager;
+        FragmentTransaction fragmentTransaction;
+        switch (position) {
+            case 0:
+                sharedPreferences.edit().putInt("FRAGMENT", 0).apply();
+                fragmentManager = getSupportFragmentManager();
+                fragmentTransaction = fragmentManager.beginTransaction();
+                FragmentPrincipal fragmentDesign = new FragmentPrincipal();
+                fragmentTransaction.replace(R.id.fragment, fragmentDesign);
+                fragmentTransaction.commit();
+                break;
+        }
+    }
+
+    public void cargapost(){
+        progressDialog = new ProgressDialog(MainActivity.this);
+        progressDialog.setMessage("Loading...");
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progressDialog.show();
+
+        // Setup Fragments
+        setFragment(sharedPreferences.getInt("FRAGMENT", 0));
+
+        progressDialog.dismiss();
+    }
+
 
     public void theme() {
         sharedPreferences = getSharedPreferences("VALUES", Context.MODE_PRIVATE);

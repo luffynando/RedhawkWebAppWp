@@ -3,6 +3,7 @@
     package="luffynando.redhawkwebappwp">
     <uses-permission android:name="android.permission.CLEAR_APP_CACHE"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name=".CacheApp"
@@ -28,6 +29,13 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="luffynando.redhawkwebappwp.MainActivity" />
+        </activity>
+        <activity
+            android:name=".Post"
+            android:label="Viewer">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="luffynando.redhawkwebappwp.MainActivity"/>
         </activity>
 
     </application>

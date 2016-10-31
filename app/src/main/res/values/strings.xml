@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Redhawk WebAppWp</string>
+    <string name="app_name">TioPixel WebAppWp</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -14,8 +14,8 @@
     <string name="Ajustes_avanzados">Ajustes avanzados</string>
     <string name="ajuste_tema_color">Cambiar el color del tema</string>
     <string name="action_about">Acerca de…</string>
-    <string name="about_app">RedhawkWebAppWp</string>
-    <string name="about_descripcion">Esta app fue realizada para servir de template</string>
+    <string name="about_app">EltiopixelWp</string>
+    <string name="about_descripcion">Esta app fue realizada para servir de template, agradecimientos a redhawk y el tio pixel</string>
     <string name="app_version">Version 1.0</string>
     <string name="color_rojo">Rojo</string>
     <string name="color_azul">Azul</string>
@@ -38,4 +38,11 @@
     <string name="nav_chat">Chat</string>
     <string name="nav_soporte">Soporte</string>
     <string name="nav_comunicacion">Comunicacion</string>
+    <string name="aspecto_default">Default</string>
+    <string name="Aspecto_grilla_revista_de_tarjetas">Grilla Revista de Tarjetas</string>
+    <string name="aspecto_grilla_de_tarjetas">Grilla de Tarjetas</string>
+    <string name="aspecto_grilla_default">Grilla default</string>
+    <string name="aspecto_lista_de_tarjetas">Lista de Tarjetas</string>
+    <string name="aspect_revista_de_tarjetas">Revista de Tarjetas</string>
+    <string name="aspecto_titulo">Seleccione visualizacion de Post</string>
 </resources>
