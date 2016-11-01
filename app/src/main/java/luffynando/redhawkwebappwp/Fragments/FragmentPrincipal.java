@@ -4,9 +4,7 @@ import android.animation.Animator;
 import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.content.res.Configuration;
 import android.os.AsyncTask;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -43,19 +41,18 @@ import luffynando.redhawkwebappwp.RecyclerView.RecyclerViewClases.RecyclerViewDe
  */
 
 public class FragmentPrincipal extends Fragment {
-    String urlpost = "https://public-api.wordpress.com/rest/v1.1/sites/tiopixel.wordpress.com/posts/?number=10&fields=ID,title,content,date,featured_image";
+    String urlpost = "https://public-api.wordpress.com/rest/v1.1/sites/tiopixel.wordpress.com/posts/?number=10&fields=ID,title,date,featured_image";
     JSONObject jsonObject;
     JSONArray jsonArray;
     SwipeRefreshLayout swipeRefreshLayout;
     int postNumber;
     SharedPreferences sharedPreferences;
     RecyclerView recyclerView;
-    String[] postTitle, postFecha, postImage, postFeatured, postid, postExcerpt;
+    String[] postTitle, postFecha, postImage, postFeatured, postid;
     Boolean error= false;
     ArrayList<Posts> post;
     View view;
     int recyclerViewPaddingTop;
-    TypedValue typedValueToolbarHeight = new TypedValue();
     Toolbar toolbar;
     FrameLayout statusBar;
     int orientation;
@@ -105,18 +102,6 @@ public class FragmentPrincipal extends Fragment {
             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
             recyclerView.setLayoutManager(linearLayoutManager);
         }
-        if (sharedPreferences.getBoolean("checkeditem4", false)) {
-            orientation = GridLayoutManager.VERTICAL;
-            reverseLayout = false;
-            GridLayoutManager layoutManager = new GridLayoutManager(getActivity().getApplicationContext(), 2, orientation, reverseLayout);
-            recyclerView.setLayoutManager(layoutManager);
-        }
-        if (sharedPreferences.getBoolean("checkeditem5", false)) {
-            orientation = GridLayoutManager.VERTICAL;
-            reverseLayout = false;
-            GridLayoutManager layoutManager = new GridLayoutManager(getActivity().getApplicationContext(), 2, orientation, reverseLayout);
-            recyclerView.setLayoutManager(layoutManager);
-        }
         if (sharedPreferences.getBoolean("checkeditem6", false)) {
             orientation = GridLayoutManager.VERTICAL;
             reverseLayout = false;
@@ -158,14 +143,12 @@ public class FragmentPrincipal extends Fragment {
                 jsonArray = jsonObject.getJSONArray("posts");
                 postTitle = new String[postNumber];
                 postid = new String[postNumber];
-                postExcerpt= new String[postNumber];
                 postFecha= new String[postNumber];
                 postImage= new String[postNumber];
                 postFecha= new String[postNumber];
                 postFeatured= new String[postNumber];
                 for (int i = 0; i < postNumber; i++) {
                     postTitle[i] = Html.fromHtml(jsonObject.getJSONArray("posts").getJSONObject(i).getString("title")).toString();
-                    postExcerpt[i] = Html.fromHtml(jsonObject.getJSONArray("posts").getJSONObject(i).getString("content")).toString();
                     postid[i]=  Html.fromHtml(jsonObject.getJSONArray("posts").getJSONObject(i).getString("ID")).toString();
                     postFecha[i]= jsonObject.getJSONArray("posts").getJSONObject(i).getString("date");
                     postImage[i]= Html.fromHtml(jsonObject.getJSONArray("posts").getJSONObject(i).getString("featured_image")).toString();
@@ -186,7 +169,7 @@ public class FragmentPrincipal extends Fragment {
             //Datos usados en el listView
             if (postTitle.length != 0) {
                 for (int i = 0; i < postNumber; i++) {
-                    post.add(new Posts(postTitle[i], postImage[i], postFecha[i], postid[i], postExcerpt[i]));
+                    post.add(new Posts(postTitle[i], postImage[i], postFecha[i], postid[i]));
                 }
             }
             if (error) {

@@ -8,7 +8,6 @@ import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
@@ -54,8 +53,17 @@ public class MainActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Ola k ase", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                try {
+                    Intent i = new Intent(Intent.ACTION_SEND);
+                    i.setType("text/plain");
+                    i.putExtra(Intent.EXTRA_SUBJECT, "RedhawkDevs");
+                    String sAux = "\nSiguenos en facebook para mas proyectos\n\n";
+                    sAux = sAux + "https://www.facebook.com/com.redhawkdevs/ \n\n";
+                    i.putExtra(Intent.EXTRA_TEXT, sAux);
+                    startActivity(Intent.createChooser(i, "Selecciona uno"));
+                } catch(Exception e) {
+                    //e.toString();
+                }
             }
         });
 
@@ -155,7 +163,7 @@ public class MainActivity extends AppCompatActivity
 
     public void cargapost(){
         progressDialog = new ProgressDialog(MainActivity.this);
-        progressDialog.setMessage("Loading...");
+        progressDialog.setMessage("Cargando...");
         progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         progressDialog.show();
 

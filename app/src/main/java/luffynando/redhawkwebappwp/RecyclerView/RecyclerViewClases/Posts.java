@@ -7,12 +7,11 @@ package luffynando.redhawkwebappwp.RecyclerView.RecyclerViewClases;
 public class Posts {
     private String title, image, fecha, contenido, id;
 
-    public Posts(String title, String image, String fecha, String id, String contenido) {
+    public Posts(String title, String image, String fecha, String id) {
         this.title = title;
         this.image = image;
         this.fecha = fecha;
         this.id = id;
-        this.contenido= contenido;
     }
     public String getTitle() {
         return title;
@@ -31,7 +30,4 @@ public class Posts {
         return id;
     }
 
-    public String getContenido(){
-        return contenido;
-    }
 }

@@ -1,54 +1,62 @@
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="120dp"
     card_view:cardCornerRadius="4dp"
     card_view:cardElevation="4dp"
-    card_view:cardUseCompatPadding="true">
+    card_view:cardUseCompatPadding="true"
+    android:layout_height="100dp">
 
     <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_margin="1dp"
+        android:layout_marginBottom="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginRight="1dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp">
 
         <ImageView
             android:id="@+id/imageViewImage"
-            android:layout_width="100dp"
-            android:layout_height="110dp"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/ic_memory_black_24dp"/>
+            android:src="@drawable/ic_memory_black_24dp"
+            android:adjustViewBounds="true"
+            android:cropToPadding="true"
+            android:layout_centerHorizontal="false"
+            android:layout_centerVertical="true" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
             android:text="Large Text"
+            android:maxLines="2"
             android:id="@+id/textViewItemTitle"
             android:layout_toRightOf="@+id/imageViewImage"
             android:layout_alignParentTop="true"
-            android:layout_marginLeft="10dp"
-            android:textColor="@color/md_text"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Large Text content"
-            android:lines="3"
-            android:id="@+id/textViewItemContent"
-            android:layout_below="@+id/textViewItemTitle"
-            android:layout_alignLeft="@+id/textViewItemTitle"
-            android:textAppearance="@android:style/TextAppearance" />
+            android:layout_marginLeft="10dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/textViewFecha"
-            android:textAppearance="@style/TextAppearance.AppCompat.Subhead.Inverse"
+            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
             android:text="Esta es la fecha"
-            android:textSize="12sp"
-            android:layout_below="@+id/textViewItemContent"
             android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:textColor="@color/md_text"/>
+            android:layout_alignParentRight="true" />
+
+        <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@+id/imageViewImage"
+            android:layout_toEndOf="@+id/imageViewImage"
+            android:id="@+id/textViewID"
+            android:visibility="gone" />
 
     </RelativeLayout>
 </android.support.v7.widget.CardView>

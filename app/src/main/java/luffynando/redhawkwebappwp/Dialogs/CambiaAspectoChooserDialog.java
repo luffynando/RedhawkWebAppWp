@@ -26,7 +26,6 @@ public class CambiaAspectoChooserDialog extends DialogFragment implements View.O
     private CheckedTextView itemButton1, itemButton2, itemButton3, itemButton4, itemButton5, itemButton6;
     private FrameLayout frameLayoutitemButton1, frameLayoutitemButton2, frameLayoutitemButton3, frameLayoutitemButton4, frameLayoutitemButton5, frameLayoutitemButton6;
     View view;
-    Intent intent;
     SharedPreferences ordenPreferencias;
     SharedPreferences.Editor editor;
 
@@ -51,8 +50,6 @@ public class CambiaAspectoChooserDialog extends DialogFragment implements View.O
         itemButton1.setChecked(ordenPreferencias.getBoolean("checkeditem1",true));
         itemButton2.setChecked(ordenPreferencias.getBoolean("checkeditem2",false));
         itemButton3.setChecked(ordenPreferencias.getBoolean("checkeditem3",false));
-        itemButton4.setChecked(ordenPreferencias.getBoolean("checkeditem4",false));
-        itemButton5.setChecked(ordenPreferencias.getBoolean("checkeditem5",false));
         itemButton6.setChecked(ordenPreferencias.getBoolean("checkeditem6",false));
     }
 
@@ -65,10 +62,6 @@ public class CambiaAspectoChooserDialog extends DialogFragment implements View.O
         editor.putBoolean("checkeditem2", valor);
         valor=itemButton3.isChecked();
         editor.putBoolean("checkeditem3", valor);
-        valor=itemButton4.isChecked();
-        editor.putBoolean("checkeditem4", valor);
-        valor=itemButton5.isChecked();
-        editor.putBoolean("checkeditem5", valor);
         valor=itemButton6.isChecked();
         editor.putBoolean("checkeditem6", valor);
         editor.apply();
@@ -90,22 +83,16 @@ public class CambiaAspectoChooserDialog extends DialogFragment implements View.O
         itemButton1= (CheckedTextView) view.findViewById(R.id.itemButton1);
         itemButton2= (CheckedTextView) view.findViewById(R.id.itemButton2);
         itemButton3= (CheckedTextView) view.findViewById(R.id.itemButton3);
-        itemButton4= (CheckedTextView) view.findViewById(R.id.itemButton4);
-        itemButton5= (CheckedTextView) view.findViewById(R.id.itemButton5);
         itemButton6= (CheckedTextView) view.findViewById(R.id.itemButton6);
 
         frameLayoutitemButton1= (FrameLayout) view.findViewById(R.id.frameLayoutitemButton1);
         frameLayoutitemButton2= (FrameLayout) view.findViewById(R.id.frameLayoutitemButton2);
         frameLayoutitemButton3= (FrameLayout) view.findViewById(R.id.frameLayoutitemButton3);
-        frameLayoutitemButton4= (FrameLayout) view.findViewById(R.id.frameLayoutitemButton4);
-        frameLayoutitemButton5= (FrameLayout) view.findViewById(R.id.frameLayoutitemButton5);
         frameLayoutitemButton6= (FrameLayout) view.findViewById(R.id.frameLayoutitemButton6);
 
         frameLayoutitemButton1.setOnClickListener(this);
         frameLayoutitemButton2.setOnClickListener(this);
         frameLayoutitemButton3.setOnClickListener(this);
-        frameLayoutitemButton4.setOnClickListener(this);
-        frameLayoutitemButton5.setOnClickListener(this);
         frameLayoutitemButton6.setOnClickListener(this);
     }
     public void onClick(View v){
@@ -114,8 +101,6 @@ public class CambiaAspectoChooserDialog extends DialogFragment implements View.O
                 itemButton1.setChecked(true);
                 itemButton2.setChecked(false);
                 itemButton3.setChecked(false);
-                itemButton4.setChecked(false);
-                itemButton5.setChecked(false);
                 itemButton6.setChecked(false);
                 guardarPreferencias();
                 dismiss();
@@ -124,8 +109,6 @@ public class CambiaAspectoChooserDialog extends DialogFragment implements View.O
                 itemButton1.setChecked(false);
                 itemButton2.setChecked(true);
                 itemButton3.setChecked(false);
-                itemButton4.setChecked(false);
-                itemButton5.setChecked(false);
                 itemButton6.setChecked(false);
                 guardarPreferencias();
                 dismiss();
@@ -134,28 +117,6 @@ public class CambiaAspectoChooserDialog extends DialogFragment implements View.O
                 itemButton1.setChecked(false);
                 itemButton2.setChecked(false);
                 itemButton3.setChecked(true);
-                itemButton4.setChecked(false);
-                itemButton5.setChecked(false);
-                itemButton6.setChecked(false);
-                guardarPreferencias();
-                dismiss();
-                break;
-            case R.id.frameLayoutitemButton4:
-                itemButton1.setChecked(false);
-                itemButton2.setChecked(false);
-                itemButton3.setChecked(false);
-                itemButton4.setChecked(true);
-                itemButton5.setChecked(false);
-                itemButton6.setChecked(false);
-                guardarPreferencias();
-                dismiss();
-                break;
-            case R.id.frameLayoutitemButton5:
-                itemButton1.setChecked(false);
-                itemButton2.setChecked(false);
-                itemButton3.setChecked(false);
-                itemButton4.setChecked(false);
-                itemButton5.setChecked(true);
                 itemButton6.setChecked(false);
                 guardarPreferencias();
                 dismiss();
@@ -164,8 +125,6 @@ public class CambiaAspectoChooserDialog extends DialogFragment implements View.O
                 itemButton1.setChecked(false);
                 itemButton2.setChecked(false);
                 itemButton3.setChecked(false);
-                itemButton4.setChecked(false);
-                itemButton5.setChecked(false);
                 itemButton6.setChecked(true);
                 guardarPreferencias();
                 dismiss();

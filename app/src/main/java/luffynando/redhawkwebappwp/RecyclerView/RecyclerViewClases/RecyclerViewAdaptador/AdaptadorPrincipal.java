@@ -9,10 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.squareup.picasso.Picasso;
-
-import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -57,18 +54,6 @@ public class AdaptadorPrincipal extends RecyclerView.Adapter<AdaptadorPrincipal.
             v.setOnClickListener(onClickListener);
             return new ViewHolder(v);
         }
-        if (ordenPreferencias.getBoolean("checkeditem4",false)) {
-            // Create a new view by inflating the row item xml.
-            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_post_v1, parent, false);
-            v.setOnClickListener(onClickListener);
-            return new ViewHolder(v);
-        }
-        if (ordenPreferencias.getBoolean("checkeditem5",false)) {
-            // Create a new view by inflating the row item xml.
-            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_post_v2, parent, false);
-            v.setOnClickListener(onClickListener);
-            return new ViewHolder(v);
-        }
         if (ordenPreferencias.getBoolean("checkeditem6",false)) {
             // Create a new view by inflating the row item xml.
             View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_post_v3, parent, false);
@@ -83,14 +68,19 @@ public class AdaptadorPrincipal extends RecyclerView.Adapter<AdaptadorPrincipal.
 
         ordenPreferencias= context.getSharedPreferences("VALUES", Context.MODE_PRIVATE);
         final TextView textViewTitle = (TextView) holder.view.findViewById(R.id.textViewItemTitle);
-        final TextView textViewContent = (TextView) holder.view.findViewById(R.id.textViewItemContent);
         final ImageView imageViewImage = (ImageView) holder.view.findViewById(R.id.imageViewImage);
         final TextView textViewFecha = (TextView) holder.view.findViewById(R.id.textViewFecha);
+        final TextView textViewId= (TextView) holder.view.findViewById(R.id.textViewID);
         textViewTitle.setText(posts.get(position).getTitle());
-        textViewContent.setText(posts.get(position).getContenido());
+        String aux= Integer.toString(position);
+        textViewId.setText(aux);
         if (posts.get(position).getImage() != ""){
             if (verificarUrl(posts.get(position).getImage())) {
-                Picasso.with(context).load(posts.get(position).getImage()).into(imageViewImage);
+                Picasso.with(context)
+                        .load(posts.get(position).getImage())
+                        .resize(200,200)
+                        .centerCrop()
+                        .into(imageViewImage);
             }
         }
         textViewFecha.setText(posts.get(position).getFecha());
@@ -104,7 +94,9 @@ public class AdaptadorPrincipal extends RecyclerView.Adapter<AdaptadorPrincipal.
     private final View.OnClickListener onClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Toast.makeText(context,"Ok",Toast.LENGTH_SHORT).show();
+            TextView aux= (TextView) v.findViewById(R.id.textViewID);
+            String ver= aux.getText().toString();
+            Toast.makeText(context,"view "+ ver,Toast.LENGTH_SHORT).show();
         }
     };
 
