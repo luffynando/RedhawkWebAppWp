@@ -31,8 +31,8 @@
                 android:value="luffynando.redhawkwebappwp.MainActivity" />
         </activity>
         <activity
-            android:name=".Post"
-            android:label="Viewer">
+            android:name=".Post_View_Activity"
+            android:label="PostView">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="luffynando.redhawkwebappwp.MainActivity"/>

@@ -1,6 +1,7 @@
 package luffynando.redhawkwebappwp.RecyclerView.RecyclerViewClases.RecyclerViewAdaptador;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -14,6 +15,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 
+import luffynando.redhawkwebappwp.Post_View_Activity;
 import luffynando.redhawkwebappwp.R;
 import luffynando.redhawkwebappwp.RecyclerView.RecyclerViewClases.Posts;
 
@@ -96,7 +98,13 @@ public class AdaptadorPrincipal extends RecyclerView.Adapter<AdaptadorPrincipal.
         public void onClick(View v) {
             TextView aux= (TextView) v.findViewById(R.id.textViewID);
             String ver= aux.getText().toString();
-            Toast.makeText(context,"view "+ ver,Toast.LENGTH_SHORT).show();
+            int numero = Integer.parseInt(ver);
+            ordenPreferencias= context.getSharedPreferences("VALUES", Context.MODE_PRIVATE);
+            ordenPreferencias.edit().putString("TITLE", posts.get(numero).getTitle()).apply();
+            ordenPreferencias.edit().putString("IMAGE", posts.get(numero).getImage()).apply();
+            Intent intent = new Intent(context,Post_View_Activity.class);
+            intent.putExtra("id", ""+posts.get(numero).getId());
+            context.startActivity(intent);
         }
     };
 
